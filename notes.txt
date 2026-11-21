@@ -1,0 +1,23 @@
+- Model seçimi:
+  Hangi modelin en iyi çalışacağı çoğu zaman önceden bilinemez. Bu yüzden birkaç uygun aday model
+  (örn. Multiple Linear, Polynomial, SVR, Decision Tree, Random Forest) denenir ve sonuçları karşılaştırılır.
+
+  * Karşılaştırma TEST seti üzerinde yapılmalı, eğitim setinde değil.
+    (Decision Tree / Random Forest eğitim verisini ezberleyip train'de R² ≈ 1 verebilir -> yanıltıcı.)
+  * Karşılaştırma adil olmalı: tüm modeller AYNI train/test bölünmesiyle eğitilmeli
+    (örn. test_size=0.2, random_state=0).
+  * Ana ölçü R² (1'e ne kadar yakınsa model veriyi o kadar iyi açıklar).
+    Ek olarak:
+      - RMSE / MAE: hatayı hedef değişkenin kendi biriminde gösterir.
+      - Adjusted R²: değişken sayısı farklı modelleri daha adil karşılaştırır
+        (gereksiz değişken eklemeyi cezalandırır).
+  * Tek bir bölünmeye dayanmak şansa bağlı olabilir -> k-Fold Cross Validation ile daha güvenilir sonuç alınır.
+
+  Özet: Aday modelleri aynı bölünmeyle eğit, test setindeki R² (gerekirse RMSE / Adjusted R²) değerlerini
+  karşılaştır, en iyi sonucu veren modeli seç.
+
+
+
+
+
+
